@@ -121,7 +121,7 @@ run memory treatedProgram nonTreatedProgram@(x:xs) = if snd x == Pure
 main = do
 	handle <- openFile "hoge.bf" ReadMode
 	code <- hGetContents handle
-	let memory = ((False,0) : (True,0) : ( replicate 6000 (False,0) ))
+	let memory = ((False,0) : (True,0) : ( repeat (False,0) ))
 	let program = separatePurity code
 	run memory [] program
 
